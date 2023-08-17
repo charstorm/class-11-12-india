@@ -1,0 +1,180 @@
+
+head-config:
+    title: Sets
+    description: "Plus1 Mathematics: Sets"
+    author: Vinay Krishnan
+
+algo-config:
+    # this can also be bottom2top (which is the default)
+    level-strategy: bottom2top
+
+nodes:
+    - name: about_graphitout
+      title: Hello There!
+      subtitle: About GraphItOut
+
+    - name: preface
+      subtitle: How to approach this topic, what to learn
+      depends-on:
+          - about_graphitout
+
+    - name: sets_motivation
+      title: Sets
+      subtitle: Like a list, but no order
+      depends-on:
+          - preface
+
+    - name: examples
+      subtitle: From real life and mathematics
+      depends-on:
+          - sets_motivation
+
+    - name: sets_representation
+      subtitle: Roster and builder forms
+      depends-on:
+          - examples
+          - sets_motivation
+
+    - name: classification_by_size
+      subtitle: Empty, finite, and infinite
+      depends-on:
+          - examples
+          - sets_motivation
+
+    - name: sets
+      title: Sets!
+      depends-on:
+          - sets_representation
+          - classification_by_size
+          - examples
+
+    - name: relations
+      subtitle: Between sets; between elements and sets
+      depends-on:
+          - sets
+
+    - name: membership
+      subtitle: a ∈ B
+      depends-on:
+          - relations
+
+    - name: subset_superset_equality
+      subtitle: A ⊂ B; B ⊃ A; A = B
+      depends-on:
+          - relations
+
+    - name: intervals
+      subtitle: (a, b) and other variants
+      depends-on:
+          - subset_superset_equality
+          - membership
+
+    - name: power_set
+      subtitle: P(A)
+      depends-on:
+          - membership
+          - subset_superset_equality
+
+    - name: universal_set
+      subtitle: U
+      depends-on:
+          - membership
+          - subset_superset_equality
+
+    - name: venn_diagrams
+      subtitle: Visualization
+      depends-on:
+          - universal_set
+          - membership
+          - subset_superset_equality
+          - relations
+
+    - name: operations
+      subtitle: Similar to addition, subtraction, etc; but for sets
+      depends-on:
+          - sets
+          - venn_diagrams
+
+    - name: union
+      subtitle: A ∪ B
+      depends-on:
+          - operations
+
+    - name: intersection
+      subtitle: A ∩ B
+      depends-on:
+          - operations
+
+    - name: difference
+      subtitle: A - B
+      depends-on:
+          - operations
+
+    - name: complement
+      subtitle: A′
+      depends-on:
+          - operations
+
+    - name: cardinality
+      subtitle: n(A) or |A|
+      depends-on:
+          - operations
+
+    - name: operations_final
+      title: Operations!
+      depends-on:
+          - union
+          - intersection
+          - difference
+          - complement
+
+    - name: operator_properties
+      depends-on:
+          - operations_final
+
+    - name: commutative
+      subtitle: p + q = q + p
+      depends-on:
+          - operator_properties
+
+    - name: associative
+      subtitle: (p + q) + r = p + (q + r)
+      depends-on:
+          - operator_properties
+
+    - name: identity
+      subtitle: p x 1 = p
+      depends-on:
+          - operator_properties
+
+    - name: idempotent
+      subtitle: p & p = p
+      depends-on:
+          - operator_properties
+
+    - name: distributive
+      subtitle: p x (q + r) = p x q + p x r
+      depends-on:
+          - operator_properties
+
+    - name: convert
+      title: Conversion*
+      subtitle: Converts everything to a special value (*made up name)
+      depends-on:
+          - operator_properties
+
+    - name: cardinality_after_operations
+      subtitle: Cardinality after operations like union, intersection, etc
+      depends-on:
+          - operations_final
+          - cardinality
+
+    - name: operator_properties_close
+      title: Operator Properties!
+      depends-on:
+        - commutative
+        - associative
+        - identity
+        - idempotent
+        - distributive
+        - convert
