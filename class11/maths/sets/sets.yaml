@@ -8,78 +8,131 @@ algo-config:
     # this can also be bottom2top (which is the default)
     level-strategy: bottom2top
 
-nodes:
-    - name: about_graphitout
-      title: Hello There!
-      subtitle: About GraphItOut
+resources:
+    preface: xournal/images/sets_all-1_opt.svg
+    sets: xournal/images/sets_all-2_opt.svg
+    examples: xournal/images/sets_all-3_opt.svg
+    set_sizes: xournal/images/sets_all-4_opt.svg
+    sets_repr: xournal/images/sets_all-5_opt.svg
+    common_number_sets: xournal/images/sets_all-6_opt.svg
+    relations: xournal/images/sets_all-7_opt.svg
+    intervals: xournal/images/sets_all-8_opt.svg
+    power_set: xournal/images/sets_all-9_opt.svg
+    universal_set: xournal/images/sets_all-10_opt.svg
+    venn_diagrams: xournal/images/sets_all-11_opt.svg
+    operations: xournal/images/sets_all-12_opt.svg
+    intersection: xournal/images/sets_all-13_opt.svg
+    union: xournal/images/sets_all-14_opt.svg
+    difference: xournal/images/sets_all-15_opt.svg
+    complement: xournal/images/sets_all-16_opt.svg
+    operator_properties: xournal/images/sets_all-17_opt.svg
+    commutative: xournal/images/sets_all-18_opt.svg
+    associative: xournal/images/sets_all-19_opt.svg
+    law_of_identity: xournal/images/sets_all-20_opt.svg
+    idempotent: xournal/images/sets_all-21_opt.svg
+    conversion: xournal/images/sets_all-22_opt.svg
+    distributive: xournal/images/sets_all-23_opt.svg
+    de_morgans_law: xournal/images/sets_all-24_opt.svg
+    cardinality: xournal/images/sets_all-25_opt.svg
 
+nodes:
     - name: preface
       subtitle: How to approach this topic, what to learn
-      depends-on:
-          - about_graphitout
+      linkto:
+          resource: preface
 
     - name: sets_motivation
       title: Sets
-      subtitle: Like a list, but no order
+      subtitle: Like a list, but no order or repeats
       depends-on:
           - preface
+      linkto:
+          resource: sets
 
     - name: examples
       subtitle: From real life and mathematics
       depends-on:
           - sets_motivation
+      linkto:
+          resource: examples
 
     - name: sets_representation
       subtitle: Roster and builder forms
       depends-on:
           - examples
           - sets_motivation
+      linkto:
+          resource: sets_repr
 
     - name: classification_by_size
       subtitle: Empty, finite, and infinite
       depends-on:
           - examples
           - sets_motivation
+      linkto:
+          resource: set_sizes
+
+    - name: common_number_sets
+      depends-on:
+          - examples
+          - classification_by_size
+          - sets_representation
+      linkto:
+          resource: common_number_sets
 
     - name: sets
       title: Sets!
+      subtitle: Collecting all from Sets
       depends-on:
           - sets_representation
           - classification_by_size
+          - common_number_sets
           - examples
 
     - name: relations
       subtitle: Between sets; between elements and sets
       depends-on:
           - sets
+      linkto:
+          resource: relations
 
     - name: membership
       subtitle: a ∈ B
       depends-on:
           - relations
+      linkto:
+          resource: relations
 
     - name: subset_superset_equality
       subtitle: A ⊂ B; B ⊃ A; A = B
       depends-on:
           - relations
+      linkto:
+          resource: relations
 
     - name: intervals
       subtitle: (a, b) and other variants
       depends-on:
           - subset_superset_equality
           - membership
+      linkto:
+          resource: intervals
 
     - name: power_set
       subtitle: P(A)
       depends-on:
           - membership
           - subset_superset_equality
+      linkto:
+          resource: power_set
 
     - name: universal_set
       subtitle: U
       depends-on:
           - membership
           - subset_superset_equality
+      linkto:
+          resource: universal_set
 
     - name: venn_diagrams
       subtitle: Visualization
@@ -88,37 +141,51 @@ nodes:
           - membership
           - subset_superset_equality
           - relations
+      linkto:
+          resource: venn_diagrams
 
     - name: operations
       subtitle: Similar to addition, subtraction, etc; but for sets
       depends-on:
           - sets
           - venn_diagrams
+      linkto:
+          resource: operations
 
     - name: union
       subtitle: A ∪ B
       depends-on:
           - operations
+      linkto:
+          resource: union
 
     - name: intersection
       subtitle: A ∩ B
       depends-on:
           - operations
+      linkto:
+          resource: intersection
 
     - name: difference
       subtitle: A - B
       depends-on:
           - operations
+      linkto:
+          resource: difference
 
     - name: complement
       subtitle: A′
       depends-on:
           - operations
+      linkto:
+          resource: complement
 
     - name: cardinality
       subtitle: n(A) or |A|
       depends-on:
           - operations
+      linkto:
+          resource: cardinality
 
     - name: operations_final
       title: Operations!
@@ -131,43 +198,67 @@ nodes:
     - name: operator_properties
       depends-on:
           - operations_final
+      linkto:
+          resource: operator_properties
 
     - name: commutative
       subtitle: p + q = q + p
       depends-on:
           - operator_properties
+      linkto:
+          resource: commutative
 
     - name: associative
       subtitle: (p + q) + r = p + (q + r)
       depends-on:
           - operator_properties
+      linkto:
+          resource: associative
 
     - name: identity
       subtitle: p x 1 = p
       depends-on:
           - operator_properties
+      linkto:
+          resource: law_of_identity
 
     - name: idempotent
       subtitle: p & p = p
       depends-on:
           - operator_properties
+      linkto:
+          resource: idempotent
 
     - name: distributive
       subtitle: p x (q + r) = p x q + p x r
       depends-on:
           - operator_properties
+      linkto:
+          resource: distributive
 
     - name: convert
       title: Conversion*
       subtitle: Converts everything to a special value (*made up name)
       depends-on:
           - operator_properties
+      linkto:
+          resource: conversion
+
+    - name: de_morgans_law
+      title: De Morgan's Law
+      subtitle: (a & b)' = a' | b'
+      depends-on:
+          - operator_properties
+      linkto:
+          resource: de_morgans_law
 
     - name: cardinality_after_operations
       subtitle: Cardinality after operations like union, intersection, etc
       depends-on:
           - operations_final
           - cardinality
+      linkto:
+          resource: cardinality
 
     - name: operator_properties_close
       title: Operator Properties!
@@ -178,3 +269,4 @@ nodes:
         - idempotent
         - distributive
         - convert
+        - de_morgans_law
