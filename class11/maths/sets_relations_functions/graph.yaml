@@ -15,7 +15,7 @@ resources:
     set_sizes: xournal/images/sets_all-4_opt.svg
     sets_repr: xournal/images/sets_all-5_opt.svg
     common_number_sets: xournal/images/sets_all-6_opt.svg
-    relations: xournal/images/sets_all-7_opt.svg
+    interrelations: xournal/images/sets_all-7_opt.svg
     intervals: xournal/images/sets_all-8_opt.svg
     power_set: xournal/images/sets_all-9_opt.svg
     universal_set: xournal/images/sets_all-10_opt.svg
@@ -34,6 +34,11 @@ resources:
     distributive: xournal/images/sets_all-23_opt.svg
     de_morgans_law: xournal/images/sets_all-24_opt.svg
     cardinality: xournal/images/sets_all-25_opt.svg
+    cartesian_product: xournal/images/sets_all-26_opt.svg
+    relations: xournal/images/sets_all-27_opt.svg
+    image_domain_range: xournal/images/sets_all-28_opt.svg
+    functions: xournal/images/sets_all-29_opt.svg
+    common_functions: xournal/images/sets_all-30_opt.svg
 
 nodes:
     - name: preface
@@ -89,26 +94,26 @@ nodes:
           - common_number_sets
           - examples
 
-    - name: relations
-      subtitle: Between sets; between elements and sets
+    - name: interrelations
+      subtitle: Sets ⬌ Sets ⬌ Elements
       depends-on:
           - sets
       linkto:
-          resource: relations
+          resource: interrelations
 
     - name: membership
       subtitle: a ∈ B
       depends-on:
-          - relations
+          - interrelations
       linkto:
-          resource: relations
+          resource: interrelations
 
     - name: subset_superset_equality
       subtitle: A ⊂ B; B ⊃ A; A = B
       depends-on:
-          - relations
+          - interrelations
       linkto:
-          resource: relations
+          resource: interrelations
 
     - name: intervals
       subtitle: (a, b) and other variants
@@ -140,7 +145,7 @@ nodes:
           - universal_set
           - membership
           - subset_superset_equality
-          - relations
+          - interrelations
       linkto:
           resource: venn_diagrams
 
@@ -186,6 +191,13 @@ nodes:
           - operations
       linkto:
           resource: cardinality
+
+    - name: cartesian_product
+      subtitle: A X B
+      depends-on:
+          - operations
+      linkto:
+          resource: cartesian_product
 
     - name: operations_final
       title: Operations!
@@ -270,3 +282,32 @@ nodes:
         - distributive
         - convert
         - de_morgans_law
+
+    - name: relations
+      subtitle: Subset of A X B
+      depends-on:
+          - cartesian_product
+          - subset_superset_equality
+      linkto:
+          resource: relations
+
+    - name: image_domain_range
+      depends-on:
+          - relations
+      linkto:
+          resource: image_domain_range
+
+    - name: functions
+      subtitle: "f : A → B"
+      depends-on:
+          - image_domain_range
+          - relations
+      linkto:
+          resource: functions
+
+    - name: common_functions
+      subtitle: Identity, Constant, Polynomial, Rational
+      depends-on:
+          - functions
+      linkto:
+          resource: common_functions
