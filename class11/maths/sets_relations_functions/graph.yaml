@@ -7,6 +7,7 @@ head-config:
 algo-config:
     # this can also be bottom2top (which is the default)
     level-strategy: bottom2top
+    node-sorting: descend
 
 resources:
     preface: xournal/images/sets_all-1_opt.svg
