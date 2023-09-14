@@ -1,0 +1,83 @@
+
+head-config:
+    title: cos(x+y)
+    description: "Plus1 Mathematics: Trigonometry"
+    author: Vinay Krishnan
+
+
+algo-config:
+    # this can also be bottom2top (which is the default)
+    level-strategy: bottom2top
+    node-sorting: descend
+
+
+resources:
+  sas_theorem: xournal/images/slides-1_opt.svg
+  euclidean_distance: xournal/images/slides-2_opt.svg
+  start: xournal/images/slides-3_opt.svg
+  chord_length_1: xournal/images/slides-4_opt.svg
+  chord_length_2: xournal/images/slides-5_opt.svg
+  main_proof: xournal/images/slides-6_opt.svg
+
+
+nodes:
+  - name: sas_theorem
+    title: SAS Theorem
+    subtitle: Side-Angle-Side matching for congruent triangles
+    linkto:
+        resource: sas_theorem
+
+  - name: euclidean_distance
+    subtitle: Based on sum of squares of differences
+    linkto:
+        resource: euclidean_distance
+
+  - name: sin_cos
+    title: Sin, Cos, etc
+    subtitle: Basics of trigonometric functions
+
+  - name: start
+    subtitle: Starting point for the proof
+    depends-on:
+      - sas_theorem
+      - euclidean_distance
+      - sin_cos
+    linkto:
+        resource: start
+
+  - name: chord_length_1
+    title: Chord length - single angle
+    subtitle: Chord length for a given angle
+    depends-on:
+      - start
+    linkto:
+        resource: chord_length_1
+
+  - name: chord_length_2
+    title: Chord length - two angles
+    subtitle: Between two points defined by their angles
+    depends-on:
+      - chord_length_1
+    linkto:
+        resource: chord_length_2
+
+  - name: main_diagram
+    subtitle: x+y in two ways
+    depends-on:
+      - chord_length_2
+      - chord_length_1
+    linkto:
+        resource: main_proof
+
+  - name: length_calculations
+    subtitle: Comparing lengths calculated in two ways
+    depends-on:
+      - main_diagram
+    linkto:
+        resource: main_proof
+
+  - name: final_result
+    depends-on:
+      - length_calculations
+    linkto:
+        resource: main_proof
