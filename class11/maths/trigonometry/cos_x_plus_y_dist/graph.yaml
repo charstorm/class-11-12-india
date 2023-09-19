@@ -70,7 +70,7 @@ nodes:
         resource: main_proof
 
   - name: length_calculations
-    subtitle: Comparing lengths calculated in two ways
+    subtitle: Comparing length² calculated in two ways
     depends-on:
       - main_diagram
     linkto:
