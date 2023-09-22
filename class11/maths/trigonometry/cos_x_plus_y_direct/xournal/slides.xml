@@ -971,4 +971,14 @@
 <strk prev="1">+5Pu+a+i+d+g+i+l+l+n+o+o+p+q+q+r+r+q+p+l+i+d+7+1-6-c-h-m-o-r-s-u-u-v-w-w-w-y-A-1x|+sqS-6-5+1+4+5+9+a+d+f+h+k+m+q+s+y+C+H+M+R+W+_+12+14+14+13+12+_+Y+T+N+I+C+y+r+l+g+c+f</strk>
 </layer>
 </page>
+<page width="1000" height="600">
+<background type="solid" color="#2e3436ff" style="plain"/>
+<layer>
+<text font="Caveat Semi-Bold" size="69.337777" x="362.66941" y="19.538746" color="#ffffffff" ts="0" fn="">Objective</text>
+<text font="Caveat Semi-Bold" size="40" x="186.57263" y="134.52482" color="#ffffffff" ts="0" fn="">Find an expression for cos(x+y) in terms of 
+		cos and sin of x and y</text>
+<text font="Caveat Semi-Bold" size="40" x="222.62362" y="282.54056" color="#ffffffff" ts="0" fn="">* Direct approach 
+* Not based on Euclidian distance calculation</text>
+</layer>
+</page>
 </xournal>
