@@ -11,10 +11,11 @@ algo-config:
 
 
 resources:
-  multiplication_of_cosines: xournal/slides/slides-1_opt.svg
-  multiplication_of_sines: xournal/slides/slides-2_opt.svg
-  multiplication_of_sines_and_cosines: xournal/slides/slides-3_opt.svg
-  main_diagram: xournal/slides/slides-4_opt.svg
+  multiplication_of_cosines: xournal/images/slides-1_opt.svg
+  multiplication_of_sines: xournal/images/slides-2_opt.svg
+  multiplication_of_sines_and_cosines: xournal/images/slides-3_opt.svg
+  main_diagram: xournal/images/slides-4_opt.svg
+  start: xournal/images/slides-5_opt.svg
 
 
 nodes:
@@ -25,19 +26,26 @@ nodes:
   - name: basic_angle_calculations
     subtitle: Angles in parallel lines
 
-  - name: multiplication_of_sines
-    subtitle: sin(x1) sin(x2) ...
+  - name: start
     depends-on:
       - sin_cos
+      - basic_angle_calculations
     linkto:
-        resource: multiplication_of_sines
+        resource: start
 
   - name: multiplication_of_cosines
     subtitle: cos(x1) cos(x2) ...
     depends-on:
-      - sin_cos
+      - start
     linkto:
         resource: multiplication_of_cosines
+  
+  - name: multiplication_of_sines
+    subtitle: sin(x1) sin(x2) ...
+    depends-on:
+      - start
+    linkto:
+        resource: multiplication_of_sines
 
   - name: multiplication_of_sines_and_cosines
     title: Multiplication of Sines & Cosines
@@ -52,7 +60,6 @@ nodes:
     subtitle: Two Angles
     depends-on:
       - multiplication_of_sines_and_cosines
-      - basic_angle_calculations
     linkto:
         resource: main_diagram
 
@@ -73,13 +80,12 @@ nodes:
     title: Sin(x) Sin(y)
     depends-on:
       - cos_cos_term
-      - basic_angle_calculations
     linkto:
         resource: main_diagram
 
   - name: final_result
     depends-on:
-      - cos_cos_term
       - sin_sin_term
+      - cos_cos_term
     linkto:
         resource: main_diagram
