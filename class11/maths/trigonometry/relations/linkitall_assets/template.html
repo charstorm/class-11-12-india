@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{{.GdfData.HeadConfig.Title}}</title>
+    <meta name="description" content="{{.GdfData.HeadConfig.Description}}" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="{{.GdfData.HeadConfig.Author}}">
+    <link rel="stylesheet" href="linkitall_assets/style.css?v=0">
+    <link rel="icon" href="favicon.ico">
+<style>
+.board {
+    width: {{.BoardConfig.Width}}px;
+    height: {{.BoardConfig.Height}}px;
+}
+.node {
+    width: {{.GdfData.DisplayConfig.NodeBoxWidthPx}}px;
+}
+</style>
+</head>
+<body>
+    <section id="app">
+        <div id="link-view-panel">
+            <button class="close-button" onclick="closeLinkViewPanel()">Close (Esc)</button>
+            <div id="link-view-inner">
+            </div>
+        </div>
+        <div class="board" id="board">
+            {{range .Nodes}}
+            <div class="node" style="left: {{.ElemFields.LeftPx}}px; top: {{.ElemFields.TopPx}}px;">
+
+                <div class="link-panel">
+                    {{range .ElemFields.UsedByDots}}
+                    <div class="dot-outer">
+                        <div class="dot" id="{{.DotElemId}}">
+                            <a href="javascript:showNode('{{.PartnerNodeId}}')">+</a>
+                        </div>
+                    </div>
+                    {{end}}
+                </div>
+
+                <div class="node-content" id="{{.ElemFields.NodeElemId}}">
+                    <div class="node-content-inner">
+                        <div class="title">
+                            {{if eq (len .ElemFields.Link) 0}}
+                            {{.InputFields.Title}}
+                            {{else}}
+                            <a href="javascript:void(0)"
+                               onauxclick="openNodeLink(event, '{{.ElemFields.Link}}', true)"
+                               onclick="openNodeLink(event, '{{.ElemFields.Link}}', false)">
+                                {{.InputFields.Title}}
+                            </a>
+                            {{end}}
+                        </div>
+                        {{if ne (len .InputFields.Subtitle) 0}}
+                        <div class="subtitle"> {{.InputFields.Subtitle}} </div>
+                        {{end}}
+                    </div>
+                </div>
+
+                <div class="link-panel">
+                    {{range .ElemFields.DependsOnDots}}
+                    <div class="dot-outer">
+                        <div class="dot link-source" id="{{.DotElemId}}">
+                            <a href="javascript:showNode('{{.PartnerNodeId}}')">+</a>
+                        </div>
+                    </div>
+                    {{end}}
+                </div>
+
+            </div>
+            {{end}}
+        </div>
+    </section>
+    <script id="buildconfig" type="application/json">
+    {
+        "ArrowDirection": "{{.GdfData.AlgoConfig.ArrowDirection}}"
+    }
+    </script>
+    {{if .ControlConfig.Release}}
+    <script src="https://cdn.jsdelivr.net/npm/leader-line-new@1.1.5/leader-line.min.js"></script>
+    {{else}}
+    <!-- LeaderLine v1.1.5 (c) anseki https://anseki.github.io/leader-line/ -->
+    <script src="linkitall_vendor/leader-line/leader-line-v1.1.5.min.js"></script>
+    {{end}}
+    <script src="linkitall_assets/main.js"></script>
+</body>
+</html>
