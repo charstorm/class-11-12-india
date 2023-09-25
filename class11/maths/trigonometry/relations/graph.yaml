@@ -1,0 +1,101 @@
+
+head-config:
+    title: cos(x+y)
+    description: "Plus1 Mathematics: Trigonometry"
+    author: Vinay Krishnan
+
+
+algo-config:
+    level-strategy: bottom2top
+    node-sorting: descend
+
+
+resources:
+    even_and_odd_functions: xournal/images/slides-1_opt.svg
+    cos_x_minus_y: xournal/images/slides-2_opt.svg
+    relations_around_90: xournal/images/slides-3_opt.svg
+    sin_x_plus_y: xournal/images/slides-4_opt.svg
+    relations_around_180: xournal/images/slides-5_opt.svg
+    tan_x_plus_y: xournal/images/slides-6_opt.svg
+    2x_relations: xournal/images/slides-7_opt.svg
+    sum_and_difference_of_cosines: xournal/images/slides-8_opt.svg
+    cos_x_plus_y: https://charstorm.github.io/class-11-12-india/class11/maths/trigonometry/cos_x_plus_y_dist/
+
+
+nodes:
+  - name: even_and_odd_functions
+    subtitle: cos(x) is even, sin(x) is odd
+    linkto:
+        resource: even_and_odd_functions
+
+  - name: cos_x_plus_y
+    title: COS(X+Y)
+    subtitle: cos(x) cos(y) - sin(x) sin(y)
+    linkto:
+        resource: cos_x_plus_y
+
+  - name: cos_x_minus_y
+    title: COS(X±Y)
+    subtitle: cos(x) cos(y) ∓ sin(x) sin(y)
+    depends-on:
+      - even_and_odd_functions
+      - cos_x_plus_y
+    linkto:
+        resource: cos_x_minus_y
+
+  - name: relations_around_90
+    title: Relations Around π/2
+    subtitle: sin or cos of π/2 ± x
+    depends-on:
+      - even_and_odd_functions
+      - cos_x_minus_y
+    linkto:
+        resource: relations_around_90
+
+  - name: sin_x_plus_y
+    title: SIN(X±Y)
+    subtitle: sin(x) cos(y) ± cos(x) sin(y)
+    depends-on:
+      - relations_around_90
+      - cos_x_minus_y
+    linkto:
+        resource: sin_x_plus_y
+
+  - name: relations_around_180
+    title: Relations Around π
+    subtitle: sin or cos of π ± x
+    depends-on:
+      - cos_x_minus_y
+      - sin_x_plus_y
+    linkto:
+        resource: relations_around_180
+
+  - name: tan_x_plus_y
+    title: TAN(X±Y)
+    depends-on:
+      - sin_x_plus_y
+      - cos_x_minus_y
+    linkto:
+        resource: tan_x_plus_y
+
+  - name: 2x_relations
+    subtitle: sin(2x), cos(2x)
+    depends-on:
+      - sin_x_plus_y
+      - cos_x_minus_y
+    linkto:
+        resource: 2x_relations
+
+  - name: sum_and_difference_of_cosines
+    subtitle: cos(x) ± cos(y)
+    depends-on:
+      - cos_x_minus_y
+    linkto:
+        resource: sum_and_difference_of_cosines
+
+  - name: sum_and_difference_of_sines
+    subtitle: sin(x) ± sin(y)
+    depends-on:
+      - sin_x_plus_y
+    linkto:
+        resource: sum_and_difference_of_cosines
